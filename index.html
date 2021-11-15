@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Facebook Login JavaScript Example</title>
-<meta charset="UTF-8">
+<title>Facebook and google Login JavaScript</title>
+<meta charset="UTF-8" name="google-signin-client_id" content="430691527538-nbtc441nibjrf0h40bjg3pgs78v85ncl.apps.googleusercontent.com">
 </head>
 <body>
-    <script async defer crossorigin="anonymous" src="https://connect.facebook.net/et_EE/sdk.js#xfbml=1&version=v12.0&appId=853141112039447&autoLogAppEvents=1" nonce="FGDQbG19"></script>
-    <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false">clickme</div>
+ <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <div class="g-signin2" data-onsuccess="onSignIn"></div>
     <h1>Tere</h1>
 <script>
 
@@ -52,6 +52,14 @@
     });
   }
 
+    function onSignIn(googleUser) {
+  var profile = googleUser.getBasicProfile();
+  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
+  console.log('Name: ' + profile.getName());
+  console.log('Image URL: ' + profile.getImageUrl());
+  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
+}
+    getBasicProfile()
 </script>
 
 
