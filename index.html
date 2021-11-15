@@ -1,76 +1,76 @@
-<!DOCTYPE html>
-<html>
-<head>
-<title>Facebook and google Login JavaScript</title>
-<meta charset="UTF-8" name="google-signin-client_id" content="430691527538-nbtc441nibjrf0h40bjg3pgs78v85ncl.apps.googleusercontent.com">
-</head>
-<body>
- <script src="https://apis.google.com/js/platform.js" async defer></script>
-    <div class="g-signin2" data-onsuccess="onSignIn"></div>
-    <h1>Tere</h1>
-<script>
-
-  function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
-    console.log('statusChangeCallback');
-    console.log(response);                   // The current login status of the person.
-    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
-      testAPI();  
-    } else {                                 // Not logged into your webpage or we are unable to tell.
-      document.getElementById('status').innerHTML = 'Please log ' +
-        'into this webpage.';
-    }
-  }
-
-
-  function checkLoginState() {               // Called when a person is finished with the Login Button.
-    FB.getLoginStatus(function(response) {   // See the onlogin handler
-      statusChangeCallback(response);
+$("#signup").click(function() {
+    $("#first").fadeOut("fast", function() {
+    $("#second").fadeIn("fast");
     });
-  }
-
-
-  window.fbAsyncInit = function() {
-    FB.init({
-      appId      : '{app-id}',
-      cookie     : true,                     // Enable cookies to allow the server to access the session.
-      xfbml      : true,                     // Parse social plugins on this webpage.
-      version    : '{api-version}'           // Use this Graph API version for this call.
     });
-
-
-    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
-      statusChangeCallback(response);        // Returns the login status.
+    
+    $("#signin").click(function() {
+    $("#second").fadeOut("fast", function() {
+    $("#first").fadeIn("fast");
     });
-  };
- 
-  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
-    console.log('Welcome!  Fetching your information.... ');
-    FB.api('/me', function(response) {
-      console.log('Successful login for: ' + response.name);
-      document.getElementById('status').innerHTML =
-        'Thanks for logging in, ' + response.name + '!';
     });
-  }
-
-    function onSignIn(googleUser) {
-  var profile = googleUser.getBasicProfile();
-  console.log('ID: ' + profile.getId()); // Do not send to your backend! Use an ID token instead.
-  console.log('Name: ' + profile.getName());
-  console.log('Image URL: ' + profile.getImageUrl());
-  console.log('Email: ' + profile.getEmail()); // This is null if the 'email' scope is not present.
-}
-</script>
-
-
-<!-- The JS SDK Login Button -->
-
-<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
-</fb:login-button>
-
-<div id="status">
-</div>
-
-<!-- Load the JS SDK asynchronously -->
-<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-</body>
-</html>
+    
+    
+      
+             $(function() {
+               $("form[name='login']").validate({
+                 rules: {
+                   
+                   email: {
+                     required: true,
+                     email: true
+                   },
+                   password: {
+                     required: true,
+                     
+                   }
+                 },
+                  messages: {
+                   email: "Please enter a valid email address",
+                  
+                   password: {
+                     required: "Please enter password",
+                    
+                   }
+                   
+                 },
+                 submitHandler: function(form) {
+                   form.submit();
+                 }
+               });
+             });
+             
+    
+    
+    $(function() {
+      
+      $("form[name='registration']").validate({
+        rules: {
+          firstname: "required",
+          lastname: "required",
+          email: {
+            required: true,
+            email: true
+          },
+          password: {
+            required: true,
+            minlength: 5
+          }
+        },
+        
+        messages: {
+          firstname: "Please enter your firstname",
+          lastname: "Please enter your lastname",
+          password: {
+            required: "Please provide a password",
+            minlength: "Your password must be at least 5 characters long"
+          },
+          email: "Please enter a valid email address"
+        },
+      
+        submitHandler: function(form) {
+          form.submit();
+        }
+      });
+    });
+    
