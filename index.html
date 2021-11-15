@@ -11,7 +11,8 @@
     <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/et_EE/sdk.js#xfbml=1&version=v12.0&appId=853141112039447&autoLogAppEvents=1" nonce="DfRlrwsg"></script>
 <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
-<script>
+<a href="/logout" onclick="FB.logout();">Logout</a>
+ <script>
 
   function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
     console.log('statusChangeCallback');
