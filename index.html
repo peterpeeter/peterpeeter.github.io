@@ -7,16 +7,12 @@
 <body>
  <script src="https://apis.google.com/js/platform.js" async defer></script>
     <div class="g-signin2" data-onsuccess="onSignIn"></div>
- <button onclick="auth2.signOut().then(function () {
-  console.log('User signed out.');
-});">log out google</button>
     <h1>Tere</h1>
     <div id="fb-root"></div>
 <script async defer crossorigin="anonymous" src="https://connect.facebook.net/et_EE/sdk.js#xfbml=1&version=v12.0&appId=853141112039447&autoLogAppEvents=1" nonce="DfRlrwsg"></script>
 <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
 <a href="logout.html" onclick="FB.logout();">Logout facebook</a>
  <script>
-var auth2 = gapi.auth2.getAuthInstance();
 
   function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
     console.log('statusChangeCallback');
