@@ -13,7 +13,10 @@
 <div class="fb-login-button" data-width="" data-size="large" data-button-type="continue_with" data-layout="default" data-auto-logout-link="false" data-use-continue-as="false"></div>
 <a href="logout.html" onclick="FB.logout();">Logout</a>
  <script>
-
+var auth2 = gapi.auth2.getAuthInstance();
+auth2.signOut().then(function () {
+  console.log('User signed out.');
+});
   function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
     console.log('statusChangeCallback');
     console.log(response);                   // The current login status of the person.
